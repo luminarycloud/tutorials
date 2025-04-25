@@ -1,12 +1,10 @@
-# Luminary Cloud Python SDK
+# Luminary Cloud SDK Tutorials
 
-Welcome to the official Python SDK for [Luminary Cloud](https://luminarycloud.com) – is a massively scalable simulation platform - the fastest and easiest way to generate vast amounts of simulation data for physics AI, Design Exploration, and Optimization.
-
+Welcome to the official repository of tutorials for the [Luminary Cloud](https://luminarycloud.com) Python SDK. Luminary Cloud is a massively scalable simulation platform - the fastest and easiest way to generate vast amounts of simulation data for physics AI, Design Exploration, and Optimization.
 
 This SDK lets you **programmatically orchestrate simulations** on Luminary, integrating directly into your workflows. Whether you're running a single job or sweeping across thousands of designs, this SDK gives you full control to automate and analyze simulations using Python.
 
-Want to get started immediately? Follow our Getting Started tutorial [here](https://app.luminarycloud.com/docs/api/getting-started/first-simulation.html).
-
+Want to get started immediately? Follow our Getting Started tutorial [here](https://app.luminarycloud.com/docs/api/getting-started/first-simulation.html), or if you're already comfortable with Jupyter notebooks, check out our [notebook example](./piper-tutorial.ipynb).
 
 ---
 
@@ -74,16 +72,16 @@ If no API key is provided, the SDK will open a browser for login and use your se
 
 ## Tips
 
-- Simulations are **deduplicated** — use unique inputs or names to rerun
-- Use `.wait()` on mesh and simulation objects so the script will wait until the process completes to proceed
-- Never hardcode API keys in shared code – use environment variables
+- Simulations are **deduplicated** based on their inputs — use unique inputs or names to rerun
+- Use `.wait()` on [mesh](https://app.luminarycloud.com/docs/api/reference/luminarycloud/index.html#luminarycloud.Mesh.wait) and [simulation](https://app.luminarycloud.com/docs/api/reference/luminarycloud/index.html#luminarycloud.Simulation.wait) objects so the script will wait until the process completes to proceed
+- Never hardcode an API key in shared code – use the `LC_API_KEY` environment variable
 
 ---
 
 ## Documentation
 
 - Full API Reference: [https://app.luminarycloud.com/docs/api/](https://app.luminarycloud.com/docs/api/)
-- Tutorials: [https://docs.luminarycloud.com/en/collections/9479898-tutorials](https://docs.luminarycloud.com/en/collections/9479898-tutorials)
+- UI-based Tutorials: [https://docs.luminarycloud.com/en/collections/9479898-tutorials](https://docs.luminarycloud.com/en/collections/9479898-tutorials)
 - Simulation case studies & examples: Available in your Luminary UI
 - AI Assistance: you can ask our AI Assistant to generate code directly in your Luminary UI!
 
@@ -96,5 +94,4 @@ Need help? Contact support via our chat interface at [Luminary Cloud](https://lu
 ---
 
 > **Luminary Cloud** is a massively scalable simulation platform - the fastest and easiest way to generate vast amounts of simulation data for physics AI.
-```
 
