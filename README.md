@@ -1,11 +1,12 @@
 # Luminary Cloud Python SDK
 
-Welcome to the official Python SDK for [Luminary Cloud](https://luminarycloud.com). Luminary is a massively scalable engineering simulation platform - the fastest and easiest way to generate vast amounts of simulation data for physics AI.
+This repository containts tutorials for [Luminary Cloud's](https://luminarycloud.com) Python SDK.
 
+Luminary is a massively scalable simulation platform designed for high-throughput, cloud-native simulation. It’s the fastest and easiest way to generate vast amounts of simulation data for physics AI.
 
-This SDK lets you **programmatically orchestrate simulations** on Luminary, integrating directly into your workflows. Whether you're running a single job or sweeping across thousands of designs, this SDK gives you full control to automate and analyze simulations using Python.
+This SDK lets you programmatically orchestrate simulations on Luminary, making it easy to run large-scale workloads or seamlessly integrate Luminary into your tools and workflows. Whether you're launching a single run or sweeping across thousands of design points, you have full control over setup, execution, and results analysis.
 
-Want to get started immediately? Follow our Getting Started tutorial [here](https://github.com/luminarycloud/tutorials/blob/main/piper-tutorial.ipynb).
+Ready to dive in? Start with our Piper tutorial [here](https://github.com/luminarycloud/tutorials/blob/main/piper-tutorial.ipynb).
 
 
 ---
