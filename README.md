@@ -5,7 +5,7 @@ Welcome to the official Python SDK for [Luminary Cloud](https://luminarycloud.co
 
 This SDK lets you **programmatically orchestrate simulations** on Luminary, integrating directly into your workflows. Whether you're running a single job or sweeping across thousands of designs, this SDK gives you full control to automate and analyze simulations using Python.
 
-Want to get started immediately? Follow our Getting Started tutorial [here](https://app.luminarycloud.com/docs/api/getting-started/first-simulation.html](https://github.com/luminarycloud/tutorials/blob/main/piper-tutorial.ipynb).
+Want to get started immediately? Follow our Getting Started tutorial [here](https://github.com/luminarycloud/tutorials/blob/main/piper-tutorial.ipynb).
 
 
 ---
