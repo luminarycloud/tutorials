@@ -1,0 +1,7 @@
+luminarycloud
+python-dotenv
+pandas
+plotly
+pillow
+jupyter 
+jupytext
