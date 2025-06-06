@@ -39,9 +39,9 @@
 # Note that if you do not set the API key, you will be asked to authenticate interactively when you make your first SDK request.
 
 # %%
-# Uncomment this block to use python-dotenv for loading LC_API_KEY into the environment from a .env file.
+# Uncomment the following two lines to load LC_API_KEY from a .env file using python-dotenv:
 # from dotenv import load_dotenv
-# load_success=load_dotenv()
+# load_success = load_dotenv()
 
 # %%
 import luminarycloud as lc
