@@ -749,7 +749,7 @@ scene.add_camera(camera)
 
 # Add a slice to visualize the volume solution.
 glyph = vis.FixedSizeVectorGlyphs("glyphs")
-glyph.field.quantity = VisQuantity.VELOCITY
+glyph.quantity = VisQuantity.VELOCITY
 glyph.sampling_rate = 1000
 glyph.size = 0.2
 glyph.display_attrs.representation = Representation.SURFACE
