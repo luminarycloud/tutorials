@@ -1,14 +1,13 @@
 # ---
 # jupyter:
 #   jupytext:
-#     formats: ipynb,py:percent
 #     text_representation:
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.17.2
+#       jupytext_version: 1.17.0
 #   kernelspec:
-#     display_name: tutorial-june
+#     display_name: lumi-sdk
 #     language: python
 #     name: python3
 # ---
@@ -39,9 +38,9 @@
 # Note that if you do not set the API key, you will be asked to authenticate interactively when you make your first SDK request.
 
 # %%
-# Uncomment the following two lines to load LC_API_KEY from a .env file using python-dotenv:
+# Uncomment this block to use python-dotenv for loading LC_API_KEY into the environment from a .env file.
 # from dotenv import load_dotenv
-# load_success = load_dotenv()
+# load_success=load_dotenv()
 
 # %%
 import luminarycloud as lc
@@ -49,8 +48,8 @@ import luminarycloud.vis as vis
 from luminarycloud.types import Vector3
 
 import threading
+import contextvars
 import time
-from datetime import datetime
 from uuid import uuid4
 
 import pandas as pd
@@ -88,10 +87,22 @@ project = lc.create_project(
 # %% [markdown]
 # We will now upload the geometry to the project that we would like to simulate. This is a Parasolid CAD file representing the Piper Cherokee.
 # Specifying `wait=True` will make the `create_geometry` call block until the geometry is fully loaded and follow-on operations can be performed on it.
+# If working inside the luminary cloud hosted notebook, you will need to upload
+# the cad file into the notebook environment and replace the path to the cad file
+# appropriately.  The cad file can be found here:
+# https://github.com/luminarycloud/tutorials/blob/main/piper-cherokee/piper-cherokee-tutorial-cad.x_t.
 #
+# The code block below will download the cad file from the tutorial Github:
 
 # %%
+import requests
+
+cad_url = "https://raw.githubusercontent.com/luminarycloud/tutorials/refs/heads/main/piper-cherokee/piper-cherokee-tutorial-cad.x_t"
 cad_file = "./piper-cherokee-tutorial-cad.x_t"
+with open(cad_file, "wb") as f:
+    f.write(requests.get(cad_url).content)
+
+# %%
 geometry = project.create_geometry(cad_file, name="Piper Cherokee Model", wait=True)
 
 # %% [markdown]
@@ -158,6 +169,12 @@ camera = vis.LookAtCamera(
 )
 scene.add_camera(camera)
 
+# %%
+# Display the scene interactively in the notebook environment
+display(scene.interact(lc.enum.SceneMode.INLINE))
+
+# %%
+# Render an image of the scene using the SDK
 image_extract = scene.render_images(
     name="piper geometry", description="Piper geometry with the far field hidden."
 )
@@ -258,7 +275,8 @@ def run_mesh_creation() -> None:
     mesh = project.create_or_get_mesh(mesh_params, name="Piper Cherokee 20M mesh")
 
 
-thread = threading.Thread(target=run_mesh_creation)
+ctx = contextvars.copy_context()
+thread = threading.Thread(target=ctx.run, args=(run_mesh_creation,))
 thread.start()
 
 done = False
@@ -311,6 +329,12 @@ camera = vis.LookAtCamera(
 )
 scene.add_camera(camera)
 
+# %%
+# Display the scene interactively in the notebook environment
+display(scene.interact(lc.enum.SceneMode.INLINE))
+
+# %%
+# Render an image of the scene using the SDK
 image_extract = scene.render_images(name="piper surface mesh", description="Piper surface mesh.")
 image_extract.wait()
 
@@ -347,6 +371,12 @@ clip.plane.origin = [3.55, 0, 0.52]
 clip.display_attrs.representation = Representation.SURFACE_WITH_EDGES
 scene.add_filter(clip)
 
+# %%
+# Display the scene interactively in the notebook environment
+display(scene.interact(lc.enum.SceneMode.INLINE))
+
+# %%
+# Render an image of the scene using the SDK
 image_extract = scene.render_images(name="piper volume mesh", description="Piper volume mesh.")
 image_extract.wait()
 
@@ -383,8 +413,8 @@ fluid_flow_physics.fluid.initialization = (
 # %%
 
 material_model = lc.params.simulation.material.fluid.material_model.IdealGas(
-    molecular_weight=28.966,
-    specific_heat_cp=1006.4,
+    molecular_weight=28.96,
+    specific_heat_cp=1004.703,
 )
 
 thermal_conductivity_model = (
@@ -718,6 +748,12 @@ slice.display_attrs.field.quantity = VisQuantity.VELOCITY
 slice.display_attrs.field.component = FieldComponent.MAGNITUDE
 scene.add_filter(slice)
 
+# %%
+# Display the scene interactively in the notebook environment
+display(scene.interact(lc.enum.SceneMode.INLINE))
+
+# %%
+# Render an image of the scene using the SDK
 image_extract = scene.render_images(
     name="piper volume solution", description="Piper volume solution visualization."
 )
@@ -757,6 +793,12 @@ glyph.display_attrs.field.quantity = VisQuantity.VELOCITY
 glyph.display_attrs.field.component = FieldComponent.MAGNITUDE
 scene.add_filter(glyph)
 
+# %%
+# Display the scene interactively in the notebook environment
+display(scene.interact(lc.enum.SceneMode.INLINE))
+
+# %%
+# Render an image of the scene using the SDK
 image_extract = scene.render_images(
     name="piper volume solution", description="Piper volume solution visualization."
 )
