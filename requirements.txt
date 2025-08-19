@@ -1,4 +1,4 @@
-luminarycloud
+luminarycloud[jupyter]
 python-dotenv
 pandas
 plotly
