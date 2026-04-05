@@ -6,7 +6,7 @@ Luminary is a massively scalable simulation platform designed for high-throughpu
 
 This SDK lets you programmatically orchestrate simulations on Luminary, making it easy to run large-scale workloads or seamlessly integrate Luminary into your tools and workflows. Whether you're launching a single run or sweeping across thousands of design points, you have full control over setup, execution, and results analysis.
 
-Ready to dive in? Start with our Piper tutorial [here](https://github.com/luminarycloud/tutorials/blob/main/piper-tutorial.ipynb).
+Ready to dive in? Start with our Piper tutorial [here](https://github.com/luminarycloud/tutorials/blob/main/piper-cherokee/piper-tutorial.ipynb).
 
 
 ---
