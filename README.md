@@ -31,7 +31,7 @@ Ready to dive in? Start with our Piper tutorial [here](https://github.com/lumina
 pip install luminarycloud
 ```
 
-Requires Python 3.8 or higher.
+Requires Python 3.10 or higher.
 
 ---
 
