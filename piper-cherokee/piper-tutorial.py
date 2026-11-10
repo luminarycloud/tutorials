@@ -49,6 +49,7 @@ from luminarycloud.types import Vector3
 
 import threading
 import contextvars
+import os
 import time
 from uuid import uuid4
 
@@ -65,7 +66,7 @@ from IPython.display import display, update_display
 
 # %%
 project = lc.create_project(
-    name="Piper Cherokee SDK Tutorial",
+    name=os.environ.get("LC_TUTORIAL_PROJECT_NAME", "Piper Cherokee SDK Tutorial"),
     description="This is a demo of the Luminary Cloud SDK with the Piper Cherokee",
 )
 
